@@ -10,7 +10,12 @@
             <HobbiesCardComponent />
         </v-col>
         <v-col cols="4">
-            <FavoriteMoviesComponent />
+            <Suspense>
+                <FavoriteMoviesComponent />
+                <template #fallback>
+                    Loading...
+                </template>
+            </Suspense>
         </v-col>
         <v-col cols="4">
             <FavoriteSportsCardComponent />
@@ -24,13 +29,12 @@ import DesignationCardComponent from "~/src/components/DesignationCardComponent.
 import HobbiesCardComponent from "~/src/components/HobbiesCardComponent.vue"
 import LoadingComponent from '~/src/components/LoadingComponent.vue'
 const FavoriteMoviesComponent = defineAsyncComponent({
-    loader:() => import('~/src/components/FavoriteMoviesComponent.vue'),
-    delay:2000
+    loader: () => import('~/src/components/FavoriteMoviesComponent.vue'),
 }
 )
 const FavoriteSportsCardComponent = defineAsyncComponent({
-    loader:() => import('~/src/components/FavoriteSportsCardComponent.vue'),
-    delay:5000,
+    loader: () => import('~/src/components/FavoriteSportsCardComponent.vue'),
+    delay: 5000,
     loadingComponent: LoadingComponent
 }
 )
