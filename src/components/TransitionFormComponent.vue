@@ -1,9 +1,5 @@
 <template>
-  <Transition mode="out-in" appear>
-    <v-card>
-      <v-card-actions>
-      <v-btn color="orange-lighten-2" @click="show = !show">{{btntext}}</v-btn>
-      </v-card-actions>
+    <v-card class="ma-4">
     <Transition
     @before-enter="onBeforeEnter"
   @enter="onEnter"
@@ -14,35 +10,35 @@
   @after-leave="onAfterLeave"
   @leave-cancelled="onLeaveCancelled"
     >
-      <v-list v-if="show">
-        <v-list-subheader>List Of My Favorite Movies</v-list-subheader>
-          <v-list-item
-            v-for="(item, i) in movieitems"
-            :key="i"
-          >
-            <v-list-item-title>{{ item.text }}</v-list-item-title>
-          </v-list-item>
-      </v-list>
+    <v-sheet class="ma-6">
+    <v-form @submit.prevent v-if="!show">
+      <v-text-field
+        v-model="username"
+        :rules="rules"
+        label="username"
+      ></v-text-field>
+      <v-btn class="mt-2" block @click="show = !show">Submit</v-btn>
+    </v-form>
+    <div v-else>
+      {{ username }} is the entered Username
+      <v-card-actions>
+      <v-btn color="orange-lighten-2" @click="show = !show">Edit</v-btn>
+      </v-card-actions>
+    </div>
+  </v-sheet>
     </Transition>
   </v-card>
-</Transition>
   </template>
 <script setup>
 import { ref } from 'vue';
-
-const movieitems = ref([
-  { text: '3 Idiots' },
-  { text: 'Kho Gaye Hum Kahan' },
-  { text: 'Zindagi Na Milegi Dobara' },
-]);
+const username = ref()
+const password = ref()
 const show = ref(false);
-const btntext = ref("Click to show movies");
 function onBeforeEnter() {
   console.log("Function onBeforeEnter");
 }
 function onEnter() {
   console.log("Function onEnter");
-  btntext.value = 'Hide the list'
   // done();
 }
 function onAfterEnter() {
@@ -61,12 +57,17 @@ function onLeave() {
 
 function onAfterLeave() {
   console.log("Function onAfterLeave");
-  btntext.value = 'Click to show movies'
 }
 
 function onLeaveCancelled() {
   console.log("function onLeaveCancelled")
 }
+const rules = [
+  (value) => {
+    if (value) return true;
+    return 'You must enter a username.';
+  },
+];
 </script>
 
 <style>
