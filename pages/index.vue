@@ -1,5 +1,5 @@
 <template>
-    <v-row>
+    <v-row class="pa-4">
         <v-col cols="4">
             <NameCardComponent />
         </v-col>
