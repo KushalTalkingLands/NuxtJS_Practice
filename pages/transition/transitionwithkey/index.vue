@@ -2,5 +2,5 @@
     <TransitionWithKeyComponent/>
 </template>
 <script setup>
-import TransitionWithKeyComponent from '~/src/components/TransitionWithKeyComponent.vue';
+// import TransitionWithKeyComponent from '~/components/TransitionWithKeyComponent.vue';
 </script>

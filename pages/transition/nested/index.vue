@@ -2,5 +2,5 @@
     <NamedTransitionComponent />
 </template>
 <script setup>
-import NamedTransitionComponent from '~/src/components/NamedTransitionComponent.vue';
+// import NamedTransitionComponent from '~/components/NamedTransitionComponent.vue';
 </script>

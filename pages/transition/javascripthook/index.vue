@@ -2,5 +2,5 @@
     <HookTransitionComponent />
 </template>
 <script setup>
-import HookTransitionComponent from '../../../src/components/HookTransitionComponent.vue';
+// import HookTransitionComponent from '../../../components/HookTransitionComponent.vue';
 </script>

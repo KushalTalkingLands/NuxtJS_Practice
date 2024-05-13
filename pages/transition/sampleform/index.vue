@@ -6,5 +6,5 @@
     </v-row>
 </template>
 <script setup>
-import TransitionFormComponent from '~/src/components/TransitionFormComponent.vue';
+// import TransitionFormComponent from '~/components/TransitionFormComponent.vue';
 </script>

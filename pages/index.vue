@@ -24,16 +24,16 @@
 </template>
 <script setup>
 import { defineAsyncComponent } from 'vue'
-import NameCardComponent from "~/src/components/NameCardComponent.vue"
-import DesignationCardComponent from "~/src/components/DesignationCardComponent.vue"
-import HobbiesCardComponent from "~/src/components/HobbiesCardComponent.vue"
-import LoadingComponent from '~/src/components/LoadingComponent.vue'
+import NameCardComponent from "~/components/NameCardComponent.vue"
+import DesignationCardComponent from "~/components/DesignationCardComponent.vue"
+import HobbiesCardComponent from "~/components/HobbiesCardComponent.vue"
+import LoadingComponent from '~/components/LoadingComponent.vue'
 const FavoriteMoviesComponent = defineAsyncComponent({
-    loader: () => import('~/src/components/FavoriteMoviesComponent.vue'),
+    loader: () => import('~/components/FavoriteMoviesComponent.vue'),
 }
 )
 const FavoriteSportsCardComponent = defineAsyncComponent({
-    loader: () => import('~/src/components/FavoriteSportsCardComponent.vue'),
+    loader: () => import('~/components/FavoriteSportsCardComponent.vue'),
     delay: 5000,
     loadingComponent: LoadingComponent
 }
