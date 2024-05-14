@@ -1,5 +1,5 @@
 <template>
-    <v-row class="pa-4">
+    <!-- <v-row class="pa-4">
         <v-col cols="4">
             <NameCardComponent />
         </v-col>
@@ -20,7 +20,8 @@
         <v-col cols="4">
             <FavoriteSportsCardComponent />
         </v-col>
-    </v-row>
+    </v-row> -->
+    Mouse position is at: {{ x }}, {{ y }}
 </template>
 <script setup>
 import { defineAsyncComponent } from 'vue'
@@ -38,4 +39,5 @@ const FavoriteSportsCardComponent = defineAsyncComponent({
     loadingComponent: LoadingComponent
 }
 )
+const { x, y } = useMouse()
 </script>
