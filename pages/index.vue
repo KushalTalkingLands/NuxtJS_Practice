@@ -1,6 +1,6 @@
 <template>
-    <v-row class="pa-4">
-        <v-col cols="4">
+    <v-row class="pa-4 mainbackground">
+        <v-col cols="4" class="firstCard">
             <NameCardComponent />
         </v-col>
         <v-col cols="4">
@@ -39,3 +39,14 @@ const FavoriteSportsCardComponent = defineAsyncComponent({
 }
 )
 </script>
+<style scoped>
+.mainbackground{
+    background-color: antiquewhite;
+}
+.firstCard:deep(.cardBackground){
+    background-color: crimson;
+}
+:global(.background) {
+  background-color:burlywood; 
+}
+</style>

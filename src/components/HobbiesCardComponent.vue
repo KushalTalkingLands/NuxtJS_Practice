@@ -1,6 +1,7 @@
 <template>
-    <v-card>
-      <v-list>
+    <v-card class="card">
+      <div class="text-caption text-red font-weight-bold">* Style Done with Scoped</div>
+      <v-list class="card">
         <v-list-subheader>List Of My Hobbies</v-list-subheader>
   
         <v-list-item
@@ -21,3 +22,8 @@ const hobbiesitems = ref([
   { text: 'Playing Guitar' },
 ]);
 </script>
+<style scoped>
+.card{
+  background-color: aqua;
+}
+</style>
