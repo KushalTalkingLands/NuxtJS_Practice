@@ -1,27 +1,6 @@
 <template>
-    <!-- <v-row class="pa-4">
-        <v-col cols="4">
-            <NameCardComponent />
-        </v-col>
-        <v-col cols="4">
-            <DesignationCardComponent />
-        </v-col>
-        <v-col cols="4">
-            <HobbiesCardComponent />
-        </v-col>
-        <v-col cols="4">
-            <Suspense>
-                <FavoriteMoviesComponent />
-                <template #fallback>
-                    Loading...
-                </template>
-            </Suspense>
-        </v-col>
-        <v-col cols="4">
-            <FavoriteSportsCardComponent />
-        </v-col>
-    </v-row> -->
-    <v-btn @click="openBottomBar()">Click to Open Bottom Sheet</v-btn>
+   
+    <v-btn @click="handleClick">Click to Open Bottom Sheet</v-btn>
 </template>
 <script setup>
 import { defineAsyncComponent } from 'vue'
@@ -41,4 +20,12 @@ const FavoriteSportsCardComponent = defineAsyncComponent({
 }
 )
 const { x, y } = useMouse()
+const handleClick = () => {
+    const bodyContent = { title: "Kushal", body: "bda habdf dhfh adfkk" };
+    openBottomBar(bodyContent, helloFunction);
+};
+
+const helloFunction = () => {
+    console.log("Hello");
+};
 </script>
