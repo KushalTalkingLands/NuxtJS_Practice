@@ -1,31 +1,27 @@
 <template>
-   
-    <v-btn @click="handleClick">Click to Open Bottom Sheet</v-btn>
+   <div class="container flex items-center justify-center ma-4">
+    <div>
+        <h1>Welcome</h1>
+        <p>Sign in to your profile</p>
+        <v-btn 
+        @click ="signin"
+        class="px-3 py-2 rounded-md bg-red text-white inline-flex items-center justify-center">
+        Sign In
+    </v-btn>
+    </div>
+   </div>
 </template>
-<script setup>
-import { defineAsyncComponent } from 'vue'
-import NameCardComponent from "~/components/NameCardComponent.vue"
-import DesignationCardComponent from "~/components/DesignationCardComponent.vue"
-import HobbiesCardComponent from "~/components/HobbiesCardComponent.vue"
-import LoadingComponent from '~/components/LoadingComponent.vue'
-const {closeBottomBar,openBottomBar} = useBottomNavigation()
-const FavoriteMoviesComponent = defineAsyncComponent({
-    loader: () => import('~/components/FavoriteMoviesComponent.vue'),
-}
-)
-const FavoriteSportsCardComponent = defineAsyncComponent({
-    loader: () => import('~/components/FavoriteSportsCardComponent.vue'),
-    delay: 5000,
-    loadingComponent: LoadingComponent
-}
-)
-const { x, y } = useMouse()
-const handleClick = () => {
-    const bodyContent = { title: "Kushal", body: "bda habdf dhfh adfkk" };
-    openBottomBar(bodyContent, helloFunction);
-};
+<script setup lang="ts">
+const userStore = useUserStore();
 
-const helloFunction = () => {
-    console.log("Hello");
-};
+definePageMeta({
+    middleware:["already-auth"]
+})
+const signin = async () => {
+    await userStore.signIn({
+    username: 'kminchelle',
+    password: '0lelplR',
+    });
+await navigateTo('/transition',{replace: true} )
+}
 </script>
