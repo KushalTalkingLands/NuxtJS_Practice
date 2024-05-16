@@ -15,6 +15,7 @@ export default defineNuxtConfig({
     //...
     '@pinia/nuxt',
     '@pinia-plugin-persistedstate/nuxt',
+    '@nuxt/image',
   ],
   vite: {
     vue: {
@@ -23,4 +24,8 @@ export default defineNuxtConfig({
       },
     },
   },
+  image: {
+    quality: 80,
+    format: ['png']
+  }
 })
